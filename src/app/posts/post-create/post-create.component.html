@@ -1,0 +1,58 @@
+<mat-progress-bar *ngIf="isloading" mode="indeterminate"></mat-progress-bar>
+
+<mat-card  *ngIf="!isloading">
+  <form [formGroup]='form' (submit)= "onSavePost()">
+    <mat-form-field
+    appearance="fill"
+    style="padding-right: 1rem;">
+      <!-- hintLabel="Min 3 characters" -->
+      <mat-label>Enter Title</mat-label>
+      <input
+      matInput
+      formControlName="title"
+      name="title">
+      <!-- <mat-error *ngIf="postForm.getControl('title').invalid">{{Please Enter a Post Title}}</mat-error> -->
+      <mat-error *ngIf="form.get('title').invalid">Please Enter a Post Title</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field  appearance="fill">
+      <mat-label>Enter Content</mat-label>
+
+      <input
+      matInput
+      formControlName="content"
+      name="content">
+      <mat-error *ngIf="form.get('content').invalid">Please enter some Post Content</mat-error>
+
+    </mat-form-field>
+
+    <br>
+
+
+    <div>
+      <button
+      color="primary"
+      type="button"
+      (click)="filePicker.click()"
+      mat-button>Pick Image</button>
+        <input
+          type="file"
+          (change)="onImagePicked($event)"
+          #filePicker>
+    </div>
+
+    <div *ngIf="imagePreview != '' && imagePreview && form.get('image').valid" class="image-preview">
+      <img [src]="imagePreview" [alt]="form.value.title">
+    </div>
+    <br>
+
+    <button  mat-raised-button type="submit" color="accent">Submit</button>
+  </form>
+
+
+
+  <!-- {{newPost}} -->
+
+</mat-card>
+

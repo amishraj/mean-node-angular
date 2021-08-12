@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <span style="cursor:pointer;" [routerLink]="['/']" routerLinkActive=" router-link-active" >MyMessages</span>
+  <span class="example-spacer"></span>
+
+  <span>
+    <button  *ngIf="userIsAuthenticated" mat-icon-button [routerLink]="['/create']" routerLinkActive="mat-accent router-link-active"  aria-label="Create Post">
+     <mat-icon>note_add</mat-icon>
+   </button>
+   <button  *ngIf="!userIsAuthenticated" mat-button [routerLink]="['/auth/login']" routerLinkActive="mat-accent router-link-active"  aria-label="Login">
+    Login
+  </button>
+  <button  *ngIf="!userIsAuthenticated" mat-button [routerLink]="['/auth/signup']" routerLinkActive="mat-accent router-link-active"  aria-label="Signup">
+    Signup
+  </button>
+  <button (click)="onLogout()"  *ngIf="userIsAuthenticated" mat-button aria-label="Logout">
+    Logout
+  </button>
+  </span>
+
+   <span>
+  <!-- <button mat-icon-button [routerLink]="['/']" routerLinkActive=" router-link-active"  aria-label="All Posts">
+    <mat-icon>library_books</mat-icon>
+  </button> -->
+</span>
+
+</mat-toolbar>

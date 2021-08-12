@@ -1,0 +1,14 @@
+.info-text{
+  text-align: center;
+}
+
+.post-image{
+  height: 20rem;
+  width: 100%;
+}
+
+.post-image img{
+  height: 100%;
+  width: auto;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}

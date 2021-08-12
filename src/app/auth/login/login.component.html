@@ -1,0 +1,50 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+<mat-card  *ngIf="!isLoading">
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <mat-form-field
+    appearance="fill"
+    style="padding-right: 1rem;"
+    >
+      <!-- hintLabel="Min 3 characters" -->
+      <mat-label>Email</mat-label>
+      <input
+      matInput
+      type="email"
+      name="email"
+      ngModel
+      #emailInput="ngModel"
+      required
+      email>
+      <!-- <mat-error *ngIf="postForm.getControl('title').invalid">{{Please Enter a Post Title}}</mat-error> -->
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+
+    </mat-form-field>
+    <br>
+    <mat-form-field
+    appearance="fill">
+      <mat-label>Password</mat-label>
+
+      <input
+      matInput
+      name="password"
+      type="password"
+      ngModel
+      #passwordInput="ngModel"
+      required
+      password>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
+
+    </mat-form-field>
+
+    <br>
+
+    <button  mat-raised-button *ngIf="!isLoading" type="submit" color="accent">Login</button>
+  </form>
+
+
+
+  <!-- {{newPost}} -->
+
+</mat-card>
+
