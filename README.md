@@ -1,4 +1,4 @@
-# MEAN-node-angular-posts-app
+# mean-node-angular-posts-app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
